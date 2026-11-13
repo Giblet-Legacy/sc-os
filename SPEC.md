@@ -11,7 +11,7 @@ Function:
 | Field | Value |
 | --- | --- |
 | Version | 0.1.0 |
-| Status | Draft, built and tested, pending James's sign-off |
+| Status | Signed off by James, 2026-11-13. Tested on laptop (Windows) and S24 (Termux) |
 | Layer | Tier 1 Consumer — SC-OS, Handshake |
 | Depends | P1 Envelope v2.0.0 (`envelope_v2`), P2 Sign v2.0.0 (`sign_v2`) |
 | Licence | MSL-1.0 |
@@ -200,3 +200,4 @@ The per-connection `seq` blocks reordering and in-connection replay. It does not
 | Version | Date | Change |
 | --- | --- | --- |
 | 0.1.0 | 2026-11-13 | First draft: handshake, framing, pinning, payload/ACK |
+| 0.1.0 | 2026-11-13 | Signed off by James after passing on laptop and S24. Status line only, no rule changes |

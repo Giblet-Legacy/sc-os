@@ -7,7 +7,9 @@ Function:
     who owns it, so nothing is silently assumed. Decisions made by the
     AI are proposals pending James's sign-off.
 
-## Proposed decisions (v0.1.0) — pending James's sign-off
+## Decisions (v0.1.0) — proposed by the VS Code AI, signed off by James 2026-11-13
+
+Tested and confirmed by James on the laptop (Windows) and the S24 (Termux).
 
 - **P1 — Consume `sign_v2`, not `sign`.** The brief names P2 `sign` / `sign_capsule`. sign-layer's own CLAUDE.md says new code imports `sign_v2` (strict, locates P1 from its own file). `sign_v2.sign_capsule` *is* v1's `sign_capsule`, re-exported, so the signing behaviour the brief asks for is unchanged.
 - **P2 — Hello reply echoes A's nonce (`reply_to`).** Not in the brief. It costs one field and stops a recorded B reply being replayed to A.
