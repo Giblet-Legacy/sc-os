@@ -5,6 +5,19 @@ CHANGELOG.md — Release history in Good / Bad / Ugly format, latest at top.
 Function:
     One block per release. Every block has all three sections.
 
+## [v0.3.0] — 2026-11-13 — Nerves (read-only status bridge)
+
+**Good**
+- `SPEC_V3.md` 0.3.0, `test_nerves.py` (N1–N6, run red first) and `nerves.py`: `read_nerves(pin_path, owner_did=None)` gives the rest of the stack a read-only, verified view of a node's pins (owner, peers, address pins) with no private key and no writes. Verification is v0.2.0's own PinStore load, so it fails closed exactly as SPEC_V2 §7.2. `default_pin_path` puts the pin file at `$FORGE_HOME/sc-os/pins.sc.json`. 51/51 pass.
+- Built on James's delegation ("fix all 11 issues"). Signed off by James ("freeze all", 2026-11-13); VERSION 0.3.0.
+
+**Bad**
+- Frozen on the laptop run alone (2026-11-13); the S24 run is still to be confirmed.
+- Without `owner_did`, a reader can only check that the file is consistent with the owner it names (`owner_pinned: false`). A trust anchor needs the operator's did from somewhere other than the file.
+
+**Ugly**
+- The public-key-only stand-in relies on PinStore calling nothing on the key but `public_key()` while loading. True of v0.2.0, which is frozen.
+
 ## [v0.2.0] — 2026-11-13 — Replay-proof, persistent, long-lived
 
 Signed off by James. 45/45 tests pass on laptop and S24 (phone).
@@ -22,7 +35,9 @@ Signed off by James. 45/45 tests pass on laptop and S24 (phone).
 
 **Bad**
 
-- Not yet run on the S24 (Termux).
+- ~~Not yet run on the S24 (Termux).~~ Superseded by James's sign-off
+  above and in VERSION ("45/45 on laptop and S24"); corrected
+  2026-11-13.
 - The test suite now takes about 9 s, because the keepalive and timeout tests sleep in real time.
 - v0.1.0 and v0.2.0 nodes cannot talk to each other.
 

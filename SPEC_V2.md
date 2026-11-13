@@ -12,7 +12,7 @@ Function:
 | Field | Value |
 | --- | --- |
 | Version | 0.2.0 |
-| Status | Draft, built and tested on the laptop, pending James's sign-off |
+| Status | Signed off by James, 2026-11-13. 45/45 on laptop and S24 (VERSION, CHANGELOG v0.2.0) |
 | Layer | Tier 1 Consumer — SC-OS, Handshake v2 |
 | Over | SPEC.md 0.1.0 (frozen; `peer.py`, `transport.py` unchanged) |
 | Depends | P1 `envelope_v2` 2.0.0, P2 `sign_v2` 2.0.0, P7 `record_v2` 2.0.0 |

@@ -41,6 +41,7 @@ Tested and confirmed by James on the laptop (Windows) and the S24 (Termux).
 | --- | --- | --- |
 | Q5 | Should a P7 v3 add `load_record` (D1) and key creation (D2)? | James |
 | Q6 | Address pins match the literal `"host:port"` string, so `localhost` and `127.0.0.1` are different addresses. Normalise in v0.3.0, or leave as is? | James |
+| Q7 | Sign off SPEC_V3 0.3.0 (Nerves reader, `$FORGE_HOME/sc-os/pins.sc.json`)? Built and green on the laptop (51/51); not yet run on the S24. **Resolved 2026-11-13 — James: "freeze all".** S24 run still to be confirmed. | James |
 
 ## Resolved questions
 

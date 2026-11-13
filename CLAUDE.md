@@ -33,6 +33,7 @@ Never rewrite a primitive. Add a layer.
 
 - v0.1.0 (`SPEC.md`, `peer.py`, `transport.py`, `test_peer.py`) is signed off and **frozen**. Do not edit it.
 - v0.2.0 (`SPEC_V2.md`, `peer_v2.py`, `pins.py`, `test_peer_v2.py`) is the current layer. New code imports `peer_v2`.
+- v0.3.0 (`SPEC_V3.md`, `nerves.py`, `test_nerves.py`): read-only Nerves reader for other consumers. Signed off by James 2026-11-13.
 
 A new dependency on any layer is a SPEC change first.
 
