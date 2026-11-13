@@ -18,9 +18,29 @@ Tested and confirmed by James on the laptop (Windows) and the S24 (Termux).
 - **P5 — 64 KiB frame cap, 5 s socket timeout.** A server-side session idle for more than 5 s is closed.
 - **P6 — VERSION set to 0.1.0.** No git tag created.
 
+## Decisions (v0.2.0) — proposed by the VS Code AI, pending James's sign-off
+
+- **P7 — v0.2.0 is a new layer, not an edit.** `peer_v2.py` + `pins.py` + `SPEC_V2.md` sit above the frozen v0.1.0 files. `transport.py` is reused unchanged. v0.1.0 and v0.2.0 nodes do not interoperate (no downgrade path).
+- **P8 — Session id** = `sha256_hex(canonical_bytes({"a": nA, "b": nB}))`, carried in every post-handshake capsule. Without it, a payload recorded in one session could be injected into a later session of the same A.
+- **P9 — Address pins (`known_hosts` semantics) plus `trust="tofu"|"pinned"`.** v0.1.0 pins recorded keys but never refused one. Address pins are what make a persisted pin do something.
+- **P10 — The pin store is self-signed by the node's own key.** The node identity must therefore be stable; it is loaded from PEM via P7. A bad pin file stops the node from starting (fail closed).
+- **P11 — Crash-safe writes.** P7 writes `<pin_path>.tmp`, then `os.replace` moves it over the old file.
+- **P12 — Keepalive defaults:** ping after 10 s idle; B's idle timeout 30 s. Pings share the payload seq counter.
+- **P13 — A learns of a rejected Confirm on its first `send`.** There is no 4th handshake message; `send` then raises `PayloadError: bad_confirm`.
+
+## Divergences / gaps in consumed layers
+
+| ID | Gap | Handling in SC-OS | Owner |
+| --- | --- | --- | --- |
+| D1 | P7 `record_v2` has no "load verified record" call. `verify_record_file` returns only a bool, so a caller must read the file again and could see a different file than the one checked. | `pins.py` calls P7 verify, reads once, then re-verifies the parsed dict with P2 `sign_v2.verify_capsule`. Proper fix: a P7 v3 `load_record` returning the verified dict. | James |
+| D2 | P7 has no "save key to PEM" call. | Key creation is out of scope for SC-OS. Tests create PEM files with `cryptography` directly, as fixtures only. | James |
+
 ## Open questions
 
-None open.
+| ID | Question | Owner |
+| --- | --- | --- |
+| Q5 | Should a P7 v3 add `load_record` (D1) and key creation (D2)? | James |
+| Q6 | Address pins match the literal `"host:port"` string, so `localhost` and `127.0.0.1` are different addresses. Normalise in v0.3.0, or leave as is? | James |
 
 ## Resolved questions
 

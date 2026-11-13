@@ -26,7 +26,13 @@ Never rewrite a primitive. Add a layer.
 | --- | --- | --- |
 | P1 Envelope | `../envelope-layer` (`envelope_v2`) | did:key encode/decode, canonical bytes, sha256 |
 | P2 Sign | `../sign-layer` (`sign_v2`) | `sign_capsule`, `verify_capsule` |
-| P3–P15 | sibling repos | Not yet. Add one only through a new SPEC version |
+| P7 Record | `../record-layer` (`record_v2`) | v0.2.0: PEM identity, signed pin store on disk |
+| Others in P3–P15 | sibling repos | Not yet. Add one only through a new SPEC version |
+
+## SC-OS layers
+
+- v0.1.0 (`SPEC.md`, `peer.py`, `transport.py`, `test_peer.py`) is signed off and **frozen**. Do not edit it.
+- v0.2.0 (`SPEC_V2.md`, `peer_v2.py`, `pins.py`, `test_peer_v2.py`) is the current layer. New code imports `peer_v2`.
 
 A new dependency on any layer is a SPEC change first.
 
@@ -62,10 +68,14 @@ We build on an S24 (Termux) and a laptop (VS Code). State is confirmed, never as
 
 | Path | Role |
 | --- | --- |
-| `SPEC.md` | Handshake spec v0.1.0. Spec wins over code |
-| `transport.py` | TCP framing (newline-delimited canonical JSON) + threaded listener |
-| `peer.py` | Hello exchange, key pinning, payload/ACK |
-| `test_peer.py` | SPEC §8 tests (T1–T9) |
+| `SPEC.md` | Handshake spec v0.1.0 (frozen). Spec wins over code |
+| `transport.py` | TCP framing (newline-delimited canonical JSON) + threaded listener (frozen) |
+| `peer.py` | v0.1.0 Hello exchange, in-memory pinning, payload/ACK (frozen) |
+| `test_peer.py` | SPEC §8 tests (T1–T9) (frozen) |
+| `SPEC_V2.md` | v0.2.0 deltas: 3-way handshake, P7 pins, trust policy, keepalive |
+| `peer_v2.py` | v0.2.0 Peer/Session (current layer) |
+| `pins.py` | Pin store persisted as a P7 signed record |
+| `test_peer_v2.py` | SPEC_V2 §9 tests (V1–V15) |
 | `conftest.py` | Puts this dir and sibling layers on `sys.path` |
 | `NOTES.md` | Open questions (Q) and decisions |
 | `CHANGELOG.md` | Good / Bad / Ugly, latest at top |
@@ -73,6 +83,6 @@ We build on an S24 (Termux) and a laptop (VS Code). State is confirmed, never as
 
 ## Verify before claiming anything works
 
-1. `python -m pytest -q` (from repo root) → 22 passed
-2. The layers it consumes are still green: `../envelope-layer` 113 passed, `../sign-layer` 23 passed
+1. `python -m pytest -q` (from repo root) → 45 passed (22 v0.1.0 + 23 v0.2.0), about 9 s
+2. The layers it consumes are still green: `../envelope-layer` 113 passed, `../sign-layer` 23 passed, `../record-layer` (v1 + v2)
 3. `git ls-files --eol` → every file `i/lf`
