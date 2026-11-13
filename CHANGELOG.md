@@ -5,7 +5,9 @@ CHANGELOG.md — Release history in Good / Bad / Ugly format, latest at top.
 Function:
     One block per release. Every block has all three sections.
 
-## 0.1.0 — 2026-11-13 — The Handshake
+## 0.1.0 (scaffold) — 2026-11-13 — The Handshake
+
+Scaffold release: the handshake only. SPEC.md and VERSION both stay at 0.1.0. v1.0.0 needs the criteria in NOTES.md ("Road to v1.0.0").
 
 **Good**
 - SPEC.md 0.1.0: framing, Hello exchange, in-memory key pinning, payload/ACK.
