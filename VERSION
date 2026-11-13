@@ -1,5 +1,6 @@
 # VERSION — sc-os (Tier 1: The Nervous System)
 # Function: the current release version of this consumer. Advances only on freeze.
 # 0.0.0-dev means the repo is in build and has not yet been signed off at v1.
+# 0.1.0 - Handshake (SPEC.md 0.1.0). 22/22 tests pass. Pending sign-off.
 
-0.0.0-dev
+0.1.0

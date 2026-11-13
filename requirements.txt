@@ -1,0 +1,6 @@
+# requirements.txt — SC-OS (Tier 1: The Nervous System)
+# Function: runtime dependencies. Everything else is standard library.
+# cryptography is required by P1/P2 (sibling layers), not used directly
+# for any primitive here. Tests additionally need pytest.
+
+cryptography
