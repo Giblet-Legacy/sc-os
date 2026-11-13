@@ -4,6 +4,6 @@
 # 0.1.0 - Handshake (SPEC.md 0.1.0). 22/22 tests pass on laptop and S24. Signed off by James.
 # 0.2.0 - 3-way handshake, P7 pins, keepalive (SPEC_V2.md 0.2.0). 45/45 on laptop and S24. Signed off by James.
 
-# 0.3.0 - Nerves read-only reader (SPEC_V3.md 0.3.0). 51/51 on laptop. Signed off by James ("freeze all"); S24 run to be confirmed.
+# 0.3.0 - Nerves read-only reader (SPEC_V3.md 0.3.0). 51/51 on laptop and S24. Signed off by James ("freeze all").
 
 0.3.0

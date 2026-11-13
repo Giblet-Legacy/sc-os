@@ -12,7 +12,7 @@ Function:
 - Built on James's delegation ("fix all 11 issues"). Signed off by James ("freeze all", 2026-11-13); VERSION 0.3.0.
 
 **Bad**
-- Frozen on the laptop run alone (2026-11-13); the S24 run is still to be confirmed.
+- Frozen on the laptop run alone (2026-11-13); confirmed on the S24 by James, 2026-11-13.
 - Without `owner_did`, a reader can only check that the file is consistent with the owner it names (`owner_pinned: false`). A trust anchor needs the operator's did from somewhere other than the file.
 
 **Ugly**

@@ -12,7 +12,7 @@ Function:
 | Field | Value |
 | --- | --- |
 | Version | 0.3.0 |
-| Status | Signed off by James, 2026-11-13 ("freeze all"). Tested on the laptop; S24 run to be confirmed |
+| Status | Signed off by James, 2026-11-13 ("freeze all"). Tested on the laptop and the S24 |
 | Over | SPEC_V2.md 0.2.0 (`peer_v2.py`, `pins.py` unchanged) |
 | Depends | P1 `envelope_v2`, P2 `sign_v2`, P7 `record_v2` (via `pins.py`) |
 | Licence | MSL-1.0 |
