@@ -5,9 +5,9 @@ CHANGELOG.md — Release history in Good / Bad / Ugly format, latest at top.
 Function:
     One block per release. Every block has all three sections.
 
-## 0.2.0 — 2026-11-13 — Replay-proof, persistent, long-lived
+## [v0.2.0] — 2026-11-13 — Replay-proof, persistent, long-lived
 
-Pending James's sign-off. Tested on the laptop only.
+Signed off by James. 45/45 tests pass on laptop and S24 (phone).
 
 **Good**
 
