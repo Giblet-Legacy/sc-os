@@ -198,3 +198,4 @@ Ping/Pong and Payload/ACK exchanges never interleave: one exchange is in flight 
 | Version | Date | Change |
 | --- | --- | --- |
 | 0.2.0 | 2026-11-13 | First draft: 3-way handshake, P7 persistent pins, trust policy, keepalive |
+| 0.2.0 | 2026-11-13 | Signed off by James after passing on laptop and S24 (VERSION, CHANGELOG v0.2.0). Status line updated in `dc36bea`; this row added afterwards, at James's request to record every change. Status line only, no rule changes |
